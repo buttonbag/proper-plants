@@ -1,7 +1,12 @@
 import { useState } from "react";
+import Plants from "./Plants";
+import Cart from "./Cart";
+import PLANTS from "./data";
+
 
 export default function App() {
   const [cart, setCart] = useState();
+  const [plants] = useState(PLANTS);
   
   /**
      *  Try to find if the plant is already in the cart.
@@ -47,7 +52,11 @@ export default function App() {
 
   return (
     <>
-
+      <Plants 
+        plants={plants}
+        setCart={setCart}
+      />
+      <Cart /> 
     </>
   );
 }
