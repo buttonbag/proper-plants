@@ -5,8 +5,8 @@ import PLANTS from "./data";
 
 
 export default function App() {
-  const [cart, setCart] = useState();
-  const [plants] = useState(PLANTS);
+  const [cart, setCart] = useState([]);
+  // const [plants] = useState(PLANTS);
   
   /**
      *  Try to find if the plant is already in the cart.
@@ -17,6 +17,7 @@ export default function App() {
      */
 
     const addToCart = (plant) => {
+
       const itemExists = cart.find( (i) => i.id === plant.id );
       
       if (itemExists) {
@@ -31,6 +32,7 @@ export default function App() {
         const item = { ...plant, quantity: 1 };
         setCart( [...cart, item] );
       }
+      
     };
 
   
@@ -53,10 +55,14 @@ export default function App() {
   return (
     <>
       <Plants 
-        plants={plants}
-        setCart={setCart}
+        plants={PLANTS}
+        addToCart={addToCart}
       />
-      <Cart /> 
+      <Cart 
+        cart={cart} 
+        removeFromCart={removeFromCart}
+        addToCart={addToCart}
+      /> 
     </>
   );
 }

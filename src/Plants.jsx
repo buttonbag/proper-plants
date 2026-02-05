@@ -1,7 +1,7 @@
 
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function Plants({plants, setCart}) {
+export default function Plants({plants, addToCart}) {
   
 
   return (
@@ -10,7 +10,7 @@ export default function Plants({plants, setCart}) {
         <li key={plant.id} className="plant">
           {plant.name}
           <p className="image">{plant.image}</p>
-          <button onClick={ () => setCart(plant) }>Add to cart</button>
+          <button onClick={ () => addToCart(plant) }>Add to cart</button>
         </li>
       )};
     </ol>
